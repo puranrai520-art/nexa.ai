@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NEXA.AI Login / Sign Up</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    } 
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1200px;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 400px;
+      padding: 40px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
+      transition: 0.4s ease;
+      transform-style: preserve-3d;
+      animation: glow 6s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 20px #00f2ff, 0 0 40px #00f2ff, 0 0 60px #00f2ff66;
+      }
+      50% {
+        box-shadow: 0 0 30px #00ff95, 0 0 60px #00ff95, 0 0 80px #00ff9566;
+      }
+    }
+
+    .container:hover {
+      transform: rotateY(10deg) rotateX(10deg);
+    }
+
+    h2 {
+      text-align: center;
+      color: #00f2ff;
+      margin-bottom: 30px;
+      text-shadow: 0 0 5px #00ffff88;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px 16px;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      outline: none;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+      transition: 0.3s ease;
+    }
+
+    input:focus {
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #00ffcb, #00f2ff);
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 0 15px #00ffff88;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #00f2ff, #00ffcb);
+      transform: scale(1.03);
+    }
+
+    .toggle {
+      text-align: center;
+      color: #aaa;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .toggle span {
+      color: #00f2ff;
+      text-decoration: underline;
+    }
+
+    .google-btn {
+      background: white;
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      box-shadow: 0 0 10px #ffffff33;
+    }
+
+    .google-btn img {
+      width: 20px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="authBox">
+    <h2 id="formTitle">Log In to NEXA.AI</h2>
+    <div class="form-group">
+      <input type="email" placeholder="Email" required />
+    </div>
+    <div class="form-group">
+      <input type="password" placeholder="Password" required />
+      <a href="load.html">
+    </div>
+    <button id="submitBtn">Log In </button></a>
+    <button class="google-btn">
+      <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" />
+      Sign in with Google
+    </button>
+    <div class="toggle" onclick="toggleForm()">
+      <p id="toggleText">Don't have an account? <span>Sign Up</span></p>
+    </div>
+  </div>
+  <script>
+    let isLogin = true;
+
+    function toggleForm() {
+      const title = document.getElementById('formTitle');
+      const btn = document.getElementById('submitBtn');
+      const toggle = document.getElementById('toggleText');
+
+      if (isLogin) {
+        title.textContent = 'Sign Up for NEXA.AI';
+        btn.textContent = 'Sign Up';
+        toggle.innerHTML = 'Already have an account? <span>Log In</span>';
+      } else {
+        title.textContent = 'Log In to NEXA.AI';
+        btn.textContent = 'Log In';
+        toggle.innerHTML = 'Don\'t have an account? <span>Sign Up</span>';
+      }
+
+      isLogin = !isLogin;
+    }
+    
+  </script>
+
+</body>
+</html>
